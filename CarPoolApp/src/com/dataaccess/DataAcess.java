@@ -62,4 +62,40 @@ public class DataAcess implements dataaccessfacade {
 	     
 		return result;
 	}
+
+	private static void updateQuery(String query) {
+
+		java.sql.Connection connection = null;
+		Statement statement = null;
+
+		try {
+			connection = JDBCMySQLConnection.getConnection();
+			statement = connection.createStatement();
+			statement.executeUpdate(query);
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	}
+
+	public static void registerUser(String firstName, String lastName, 
+			String gender, int birthDate, 
+			String email, String city, String state, String street, int zipcode,String password,String username) {
+		String query = "INSERT INTO users (firstname,lastname,gender,birthyear,"
+				+ "state,city,street,zipcode,password,username," + "email)" + "values('" + firstName+ "','"
+				+ lastName + "','" + gender + "','" + birthDate+ "','" +state+"','"+ city+"','"
+				+street+"','"+zipcode+"','"+password+"','"+username+"','"+email + "')";
+
+		updateQuery(query);
+	}
 }
