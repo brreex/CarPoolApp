@@ -1,14 +1,15 @@
 package com.model;
-
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 public class Post {
 	private int postId;
 	private String postText;
 	private String postType;
-	private LocalDate dateCreated;
-	private LocalDate dateUpdated;
+	private Date dateCreated;
+	private Date dateUpdated;
 
 	private User user;// who posted it
 	private List<Like> like; // can have many likes
@@ -17,16 +18,12 @@ public class Post {
 	public Post() {
 	}
 
-	public Post(int postId, String postText, String postType, LocalDate dateCreated, LocalDate dateUpdated, User user,
-			List<Like> like, List<Comment> comment) {
+	public Post(int postId, String postText, String postType, Date dateCreated, Date dateUpdated) {
 		this.postId = postId;
 		this.postText = postText;
 		this.postType = postType;
 		this.dateCreated = dateCreated;
 		this.dateUpdated = dateUpdated;
-		this.user = user;
-		this.like = like;
-		this.comment = comment;
 	}
 
 	public int getPostId() {
@@ -53,19 +50,19 @@ public class Post {
 		this.postType = postType;
 	}
 
-	public LocalDate getDateCreated() {
+	public Date getDateCreated() {
 		return dateCreated;
 	}
 
-	public void setDateCreated(LocalDate dateCreated) {
+	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
 	}
 
-	public LocalDate getDateUpdated() {
+	public Date getDateUpdated() {
 		return dateUpdated;
 	}
 
-	public void setDateUpdated(LocalDate dateUpdated) {
+	public void setDateUpdated(Date dateUpdated) {
 		this.dateUpdated = dateUpdated;
 	}
 
