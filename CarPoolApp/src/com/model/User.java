@@ -1,39 +1,38 @@
 package com.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.dataaccess.DataAcess;
 
 public class User {
-	private int userId;
 	
-
 	private String firstName;
 	private String lastName;
 	private String gender;
-	private LocalDate birthDate;
+	private int birthDate;
 	private String email;
-    private LocalDate dateUpdated;
-    private LocalDate dateCreated;
-	private Address address;
-	private Account account;
+	private Date dateUpdated;
+	private Date dateCreated;
+	private String city;
+	private String state;
+	private String street;
+	private String password;
+	private String username;
+	private int zipcode;
 	private List<Post> post;
 	private List<Comment> comment;
-	private Like like;
+	private List<Like> like;
 
-	public User() {
-
+	public User(){
+		
 	}
-
-	
-
-	
-
-	public User(int userId, String firstName, String lastName, String gender, LocalDate birthDate, String email,
-			LocalDate dateUpdated, LocalDate dateCreated, Address address, Account account) {
-		super();
-		this.userId = userId;
+	public User(String firstName, String lastName, String gender, int birthDate, 
+			String email, String city, String state, 
+			String street, int zipcode,String password,String username) {
+		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
@@ -41,35 +40,20 @@ public class User {
 		this.email = email;
 		this.dateUpdated = dateUpdated;
 		this.dateCreated = dateCreated;
-		this.address = address;
-		this.account = account;
+		this.city = city;
+		this.state = state;
+		this.street = street;
+		this.zipcode = zipcode;
+		this.password=password;
+		this.username=username;
 	}
-
-
-
-
-
-	public int getUserId() {
-		return userId;
-	}
-
-
-
-
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-
-
-
+	
+	
+	
 
 	public String getFirstName() {
 		return firstName;
 	}
-
-
 
 
 
@@ -79,13 +63,9 @@ public class User {
 
 
 
-
-
 	public String getLastName() {
 		return lastName;
 	}
-
-
 
 
 
@@ -93,6 +73,33 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 
 
@@ -103,29 +110,21 @@ public class User {
 
 
 
-
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
 
 
-
-
-	public LocalDate getBirthDate() {
+	public int getBirthDate() {
 		return birthDate;
 	}
 
 
 
-
-
-	public void setBirthDate(LocalDate birthDate) {
+	public void setBirthDate(int birthDate) {
 		this.birthDate = birthDate;
 	}
-
-
 
 
 
@@ -135,77 +134,81 @@ public class User {
 
 
 
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
 
 
-
-
-	public LocalDate getDateUpdated() {
+	public Date getDateUpdated() {
 		return dateUpdated;
 	}
 
 
 
-
-
-	public void setDateUpdated(LocalDate dateUpdated) {
+	public void setDateUpdated(Date dateUpdated) {
 		this.dateUpdated = dateUpdated;
 	}
 
 
 
-
-
-	public LocalDate getDateCreated() {
+	public Date getDateCreated() {
 		return dateCreated;
 	}
 
 
 
-
-
-	public void setDateCreated(LocalDate dateCreated) {
+	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
 	}
 
 
 
-
-
-	public Address getAddress() {
-		return address;
+	public String getCity() {
+		return city;
 	}
 
 
 
-
-
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 
 
-
-
-	public Account getAccount() {
-		return account;
+	public String getState() {
+		return state;
 	}
 
 
 
-
-
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setState(String state) {
+		this.state = state;
 	}
 
 
+
+	public String getStreet() {
+		return street;
+	}
+
+
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+
+
+	public int getZipcode() {
+		return zipcode;
+	}
+
+
+
+	public void setZipcode(int zipcode) {
+		this.zipcode = zipcode;
+	}
 
 
 
@@ -215,54 +218,46 @@ public class User {
 
 
 
-
-
-	public void setPost(List<Post> post) {
-		this.post = post;
+	public void addPost(Post post) {
+		this.post= new ArrayList<Post>();
+		  this.post.add(post);
 	}
+
+
 
 	public List<Comment> getComment() {
 		return comment;
 	}
 
-	public void setComment(List<Comment> comment) {
-		this.comment = comment;
+
+
+	public void addComment(Comment comment) {
+		this.comment = new ArrayList<Comment>();
+		this.comment.add(comment);
 	}
 
 
 
-
-
-	public Like getLike() {
+	public List<Like> getLike() {
 		return like;
 	}
 
 
 
-
-
-	public void setLike(Like like) {
-		this.like = like;
+	public void addLike(Like like) {
+		this.like= new ArrayList<Like>();
+		this.like.add(like);
 	}
-
-
-
-
-
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender
-				+ ", birthDate=" + birthDate + ", email=" + email + ", dateUpdated=" + dateUpdated + ", dateCreated="
-				+ dateCreated + ", address=" + address + ", account=" + account + ", post=" + post + ", comment="
-				+ comment + ", like=" + like + "]";
-	}
-
-
-
-
 
 	public boolean login(String username, String password) {
 		DataAcess dataaccess = new DataAcess();
 		return dataaccess.login(username, password);
+	}
+	
+	public void register(String firstName, String lastName, 
+			String gender, int birthDate, 
+			String email, String city, String state, String street, int zipcode,String password,String username){
+		DataAcess.registerUser(firstName, lastName, gender, birthDate,
+				email,city,state,street,zipcode,password,username);
 	}
 }

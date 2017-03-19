@@ -5,7 +5,7 @@ import java.sql.SQLException;
 public class JDBCMySQLConnection {
 
 	private static JDBCMySQLConnection instance = new JDBCMySQLConnection();
-    public static final String URL = "jdbc:mysql://localhost/carpool";
+    public static final String URL = "jdbc:mysql://172.17.4.101/carpoolingdb";
     public static final String USER = "root";
     public static final String PASSWORD = "root";
     public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
@@ -33,9 +33,7 @@ public class JDBCMySQLConnection {
     }   
      
     public static synchronized Connection getConnection() {
-    	if(connection==null)
           return instance.createConnection();
-    	else 
-    		return connection;
+    	
     }
 }
