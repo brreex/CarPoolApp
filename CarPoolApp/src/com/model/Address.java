@@ -1,21 +1,33 @@
 package com.model;
 
 public class Address {
+	private int addressId;
 	private String street;
 	private String city;
 	private String zipCode;
 	private String state;
+
+	// whose address
 	private User user;
-	
+
 	public Address() {
 	}
 
-	public Address(String street, String city, String zipCode, String state, User user) {
+	public Address(int addressId, String street, String city, String zipCode, String state, User user) {
+		this.addressId = addressId;
 		this.street = street;
 		this.city = city;
 		this.zipCode = zipCode;
 		this.state = state;
 		this.user = user;
+	}
+
+	public int getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
 	}
 
 	public String getStreet() {
@@ -60,7 +72,8 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [street=" + street + ", city=" + city + ", zipCode=" + zipCode + ", state=" + state + ", user="
-				+ user + "]";
+		return "Address [addressId=" + addressId + ", street=" + street + ", city=" + city + ", zipCode=" + zipCode
+				+ ", state=" + state + ", user=" + user + "]";
 	}
+
 }

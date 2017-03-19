@@ -26,7 +26,8 @@
 				</div>
 			</form>
 			<div class="button">
-			<p style='color:red;visibility:hidden;'>Your last answer was not correct! Please try again</p>
+				<p style='color: red; visibility: hidden;'>Your last answer was
+					not correct! Please try again</p>
 			</div>
 		</section>
 	</div>
