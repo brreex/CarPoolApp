@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="resource/css/style.css" rel="stylesheet">
+<link href="resource/css/stylee.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
 	<div class="container">
@@ -22,7 +22,7 @@
 				</div>
 				<div>
 					<input type="submit" value="Log in" /> <a href="#">Lost your
-						password?</a> <a href="#">Register</a>
+						password?</a> <a href="register.jsp">Register</a>
 				</div>
 			</form>
 			<div class="button">

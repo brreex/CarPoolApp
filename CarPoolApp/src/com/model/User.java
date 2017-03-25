@@ -24,6 +24,13 @@ public class User {
 	private List<Post> post;
 	private List<Comment> comment;
 	private List<Like> like;
+	private int userId;
+
+	
+	
+	public int getUserId() {
+		return userId;
+	}
 
 	public User() {
 
@@ -176,14 +183,35 @@ public class User {
 		this.like.add(like);
 	}
 
-	public boolean login(String username, String password) {
+	public int login(String username, String password) {
 		DataAcess dataaccess = new DataAcess();
 		return dataaccess.login(username, password);
 	}
 
+	public void setUserId(int userId) {
+		this.userId = userId;
+		
+	}
+	
 	public void register(String firstName, String lastName, String gender, int birthDate, String email, String city,
 			String state, String street, int zipcode, String password, String username) {
 		DataAcess.registerUser(firstName, lastName, gender, birthDate, email, city, state, street, zipcode, password,
 				username);
+	}
+	
+	public void updateProfile( int userid,String firstName, String lastName, String gender, int birthDate, String email, String city,
+			String state, String street, int zipcode, String password, String username){
+		DataAcess.updateProfile(userid,firstName, lastName, gender,
+				birthDate, email, city, state, street, zipcode, password, username);
+	}
+	
+	public User getUserData(int userid){
+		
+    		return DataAcess.getUserData(userid);
+		
+	}
+
+	public User getUserData(String username) {
+		return DataAcess.getUserData(username);
 	}
 }

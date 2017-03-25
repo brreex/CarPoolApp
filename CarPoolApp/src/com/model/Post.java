@@ -3,6 +3,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+
+import com.dataaccess.DataAcess;
 @XmlRootElement
 public class Post {
 	private int postId;
@@ -95,6 +97,10 @@ public class Post {
 		return "Post [postId=" + postId + ", postText=" + postText + ", postType=" + postType + ", dateCreated="
 				+ dateCreated + ", dateUpdated=" + dateUpdated + ", user=" + user + ", like=" + like + ", comment="
 				+ comment + "]";
+	}
+
+	public void addPost(int userId, String postComment, int postType) {
+		DataAcess.addPost(userId, postComment, postType);
 	}
 
 }

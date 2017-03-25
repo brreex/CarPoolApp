@@ -8,5 +8,6 @@
 </head>
 <body>
 <h3>Welcome</h3> 
+<a href ="ProfileController" >profile</a>
 </body>
 </html>

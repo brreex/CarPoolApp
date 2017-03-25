@@ -1,19 +1,12 @@
 package com.web;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.dataaccess.DataAcess;
+import javax.servlet.http.HttpSession;
 
 import com.model.User;
 
@@ -38,7 +31,7 @@ public class registerController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 	}
 
 	/**
@@ -48,8 +41,8 @@ public class registerController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String fname = request.getParameter("fname");
-		String lname = request.getParameter("lname");
+		String fname = request.getParameter("firstname");
+		String lname = request.getParameter("lastname");
 		String gender = request.getParameter("gender");
 		
 		
@@ -70,31 +63,19 @@ public class registerController extends HttpServlet {
 
 			
 		}catch(NumberFormatException e){
-			
+			e.printStackTrace();
 		}
 		
 		
-		String ageMessage = "hidden";
-		if ((LocalDate.now().getYear() - bdate) < 18) {
-			ageMessage = "visible";
-		} else {
-			// Send to the database
-
-		}
-		// public void register(String firstName, String lastName,
-		// String gender, int birthDate,
-		// String email, String city, String state, String street, int
-		// zipcode,String password,String username){
-		// DataAcess.registerUser(firstName, lastName, gender, birthDate,
-		// email,city,state,street,zipcode,password,username);
+		
 		User user = new User();
-		user.register(fname, lname, gender, bdate,
-				email, city, state, street, zipcode, password, username);
+		user.register(fname, lname, gender, bdate,email, city, state, street, zipcode, password, username);
 		
-		request.setAttribute("ageMessage", ageMessage);
-
-		// User user = new User(firstName,lastName,gender,bdate,email,);
-
+		user = user.getUserData(username);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("userData", user);
+		response.sendRedirect("homePage.jsp");
 	}
 
 }
