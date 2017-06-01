@@ -153,7 +153,6 @@ function givingSuccess(jsonData){
     else{
         stop =true;
     }
-   
 }
 
 function askingSuccess(jsonData){
