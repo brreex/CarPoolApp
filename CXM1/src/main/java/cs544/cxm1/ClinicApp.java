@@ -53,31 +53,6 @@ public class ClinicApp {
 			
 			session.getTransaction().commit();
 		}
-
-		try (Session session = sessionFactory.openSession()) {
-			/*
-			 * session.beginTransaction();
-			 * 
-			 * session.getTransaction().commit();
-			 */
-		}
-
-		try (Session session = sessionFactory.openSession()) {
-			/*
-			 * session.beginTransaction();
-			 * 
-			 * session.getTransaction().commit();
-			 */
-		}
-
-		try (Session session = sessionFactory.openSession()) {
-			/*
-			 * session.beginTransaction();
-			 * 
-			 * session.getTransaction().commit();
-			 */
-		}
-
 		tearDown();
 	}
 }
